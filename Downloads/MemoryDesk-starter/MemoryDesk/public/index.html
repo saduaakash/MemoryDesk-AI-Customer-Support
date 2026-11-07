@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MemoryDesk — Support that remembers</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">M</div><span>MemoryDesk</span></div>
+      <div class="workspace-label">WORKSPACE</div>
+      <button class="nav-item active"><span>▦</span> Overview</button>
+      <button class="nav-item" id="chatNav"><span>◉</span> AI Support Chat</button>
+      <button class="nav-item" id="memoryNav"><span>◈</span> Memory Insights</button>
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-dot"></span><div><b>AI Support Agent</b><small id="connectionText">Checking services…</small></div></div>
+        <div class="user-row"><div class="avatar">A</div><div><b>Admin Workspace</b><small>Project demo</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div><span class="crumb">Workspace</span><span class="slash">/</span><b>Overview</b></div><div class="top-actions"><span class="live-pill"><i></i> LIVE DEMO</span><div class="avatar">A</div></div></header>
+
+      <section class="page-heading">
+        <div><p class="eyebrow">CUSTOMER EXPERIENCE PLATFORM</p><h1>Good morning, Admin <span>✦</span></h1><p class="subheading">Your AI support agent remembers every conversation.</p></div>
+        <button class="primary-btn" id="newChatBtn">＋ New conversation</button>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>Total conversations</span><span class="stat-icon purple">▤</span></div><strong id="conversationCount">0</strong><small>In this browser session</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Customer ID</span><span class="stat-icon blue">♙</span></div><strong class="stat-customer" id="statCustomer">rahul-01</strong><small>Current demo customer</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Memory system</span><span class="stat-icon green">◈</span></div><strong class="stat-status" id="memoryStatus">Checking</strong><small>Hindsight connection</small></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel chat-panel" id="chatPanel">
+          <div class="panel-heading"><div><h2>AI Support Assistant</h2><p>Talk to your customer support agent</p></div><span class="online-tag"><i></i> Online</span></div>
+          <div class="customer-strip"><div class="avatar customer-avatar">R</div><div><b>Rahul Sharma</b><small>Customer ID: <span id="customerLabel">rahul-01</span></small></div><button id="changeCustomer" class="text-btn">Change ID</button></div>
+          <div class="messages" id="messages">
+            <div class="message-row"><div class="bot-avatar">M</div><div class="bubble-wrap"><span class="sender">MemoryDesk Assistant</span><div class="bubble">Hello! I'm your MemoryDesk support assistant. I can remember previous customer interactions. Tell me how I can help today.</div><small class="time">Just now</small></div></div>
+          </div>
+          <form id="chatForm" class="composer"><input id="messageInput" autocomplete="off" placeholder="Describe your issue…" /><button class="send-btn" type="submit">Send ↗</button></form>
+          <div class="composer-hint">AI responses may need verification. Do not enter real sensitive customer data.</div>
+        </article>
+
+        <aside class="right-column">
+          <article class="panel memory-panel">
+            <div class="panel-heading"><div><h2>Memory insights</h2><p>What the agent recalls</p></div><span class="memory-symbol">◈</span></div>
+            <div class="memory-empty" id="memoryList"><div class="brain-icon">◈</div><b>Memory will appear here</b><p>Chat with the agent, then ask it about a previous conversation.</p></div>
+            <button class="secondary-btn" id="refreshMemory">Explore customer memory →</button>
+          </article>
+          <article class="tip-card"><div class="tip-icon">✦</div><div><b>Make memory visible</b><p>Tell the agent a customer issue, then start another interaction using the same customer ID. Ask what happened previously.</p></div></article>
+        </aside>
+      </section>
+      <footer>MemoryDesk <span>•</span> Built with Hindsight persistent memory</footer>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

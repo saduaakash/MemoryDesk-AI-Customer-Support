@@ -1,0 +1,17 @@
+{
+  "name": "memorydesk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+  "start": "node server.js",
+  "dev": "node --watch server.js"
+},
+  "dependencies": {
+    "@vectorize-io/hindsight-client": "*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^5.12.2"
+  }
+}
