@@ -1,65 +1,165 @@
-# MemoryDesk
+# MemoryDesk – AI-Powered Customer Support Agent
 
-An AI customer-support demo that uses Hindsight for persistent customer memory and Groq for response generation.
+**MemoryDesk** is an AI-powered customer support application that uses **Hindsight Memory** and **Groq LLM** to provide personalized customer support. It remembers important details from previous conversations and uses them to deliver more relevant responses.
 
-## Prerequisites
+## 🚀 Features
 
-- Node.js 18+
-- A Groq API key
-- A Hindsight Cloud API key and an available Hindsight memory bank / workspace
+- **AI-Powered Support:** Provides intelligent responses to customer queries.
+- **Long-Term Memory:** Uses Hindsight to retain and recall useful customer information.
+- **Personalized Conversations:** Remembers customer details, order numbers, and communication preferences.
+- **Customer Isolation:** Keeps individual customer memories separate using Customer IDs.
+- **Memory Insights:** Allows users to explore recalled customer information.
+- **Interactive Dashboard:** Provides a modern interface for managing support conversations.
+- **Real-Time Responses:** Connects to Groq LLM for AI-generated answers.
 
-## Setup
+## 🛠️ Tech Stack
 
-1. Install dependencies:
+| Technology | Purpose |
+|---|---|
+| HTML5 | Frontend structure |
+| CSS3 | UI styling |
+| JavaScript | Frontend functionality |
+| Node.js | Backend runtime |
+| Express.js | Backend framework |
+| Groq API | AI-powered responses |
+| Hindsight | Persistent memory and recall |
 
-   ```bash
-   npm install
-   ```
+## 🏗️ System Architecture
 
-2. Copy `.env.example` to `.env`.
+1. Customer enters a message through the MemoryDesk interface.
+2. The frontend sends the message and Customer ID to the Express.js backend.
+3. Hindsight retrieves relevant information from previous conversations.
+4. Groq LLM generates a personalized response using the available context.
+5. The conversation is processed for memory retention.
+6. The customer can ask questions about previous interactions.
 
-   Windows PowerShell:
+## 📂 Project Structure
 
-   ```powershell
-   Copy-Item .env.example .env
-   ```
+```text
+MemoryDesk/
+│
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+│
+├── .env.example
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+└── server.js
+```
 
-   macOS/Linux:
+## ⚙️ Installation and Setup
 
-   ```bash
-   cp .env.example .env
-   ```
+### 1. Clone the repository
 
-3. Add your real `GROQ_API_KEY` and `HINDSIGHT_API_KEY` in `.env`. Keep `.env` private; never commit it.
+```bash
+git clone https://github.com/saduaakash/MemoryDesk-AI-Customer-Support.git
+```
 
-4. In Hindsight, confirm your Cloud API base URL, API key, and memory bank configuration. Set `HINDSIGHT_BANK_ID` to your chosen bank prefix.
+### 2. Navigate to the project folder
 
-5. Start the application:
+```bash
+cd MemoryDesk-AI-Customer-Support
+```
 
-   ```bash
-   npm run dev
-   ```
+If the project files are inside the nested `MemoryDesk` directory, run:
 
-6. Open http://localhost:3000.
+```bash
+cd MemoryDesk
+```
 
-## Demo flow
+### 3. Install dependencies
 
-1. Keep customer ID `rahul-01`.
-2. Send: "My order 7842 was delayed and I prefer updates by email."
-3. Send another message: "What do you remember about my previous issue?"
-4. Check the Memory Insights panel.
-5. Switch to a different customer ID and verify that customer memories are separated.
+```bash
+npm install
+```
 
-## Architecture
+### 4. Configure environment variables
 
-Browser UI -> Express API -> Hindsight recall -> Groq response -> Hindsight retain -> Browser UI.
+Create a `.env` file by copying `.env.example`.
 
-The backend uses Hindsight's official JavaScript SDK. API keys stay on the server.
+On Windows Command Prompt:
 
-## Important notes
+```cmd
+copy .env.example .env
+```
 
-- This is a hackathon MVP starter, not a production-ready support platform.
-- Verify the Hindsight Cloud bank/API setup in your account before the demo.
-- The demo must show real Hindsight recall and retain operations; do not present mock memories as real.
-- Add authentication, rate limiting, validation, audit logging, and secure customer data handling before production use.
-- Do not use real sensitive customer information in the demo.
+Add your API credentials to `.env`:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+GROQ_MODEL=openai/gpt-oss-120b
+
+HINDSIGHT_BASE_URL=your_hindsight_base_url
+HINDSIGHT_API_KEY=your_hindsight_api_key
+HINDSIGHT_BANK_ID=memorydesk-support
+```
+
+**Important:** Never upload your `.env` file or expose your API keys publicly.
+
+### 5. Start the application
+
+```bash
+npm run dev
+```
+
+### 6. Open the application
+
+Visit:
+
+```text
+http://localhost:3000
+```
+
+## 🧪 Example Test
+
+**First conversation:**
+
+Customer:
+> My name is Rahul. My order number is 7842. My order was delayed. I prefer email updates.
+
+**Follow-up conversation:**
+
+Customer:
+> Do you remember my previous order number and preferred communication method?
+
+Expected result:
+- Customer name: Rahul
+- Order number: 7842
+- Preferred communication: Email
+
+MemoryDesk uses Hindsight to retrieve relevant information from the customer's previous interaction.
+
+## 🔐 Privacy and Customer Isolation
+
+MemoryDesk uses separate Customer IDs to prevent one customer's conversation memories from being used in another customer's session.
+
+For example:
+- `rahul-01` – Rahul's customer memory.
+- `customer-02` – A separate customer's memory.
+
+## 🎯 Project Objective
+
+The main objective of MemoryDesk is to improve customer support by building an AI agent that learns from previous interactions, remembers important customer information, and provides personalized assistance.
+
+## 🔮 Future Enhancements
+
+- Integration with email and messaging platforms.
+- Customer ticket management.
+- Order tracking integration.
+- Multi-language customer support.
+- Advanced analytics and support dashboards.
+- Improved memory management and customer privacy controls.
+
+## 👨‍💻 Developer
+
+**Sadu Aakash**
+
+GitHub: [@saduaakash](https://github.com/saduaakash)
+
+## 📄 License
+
+This project is developed for educational and hackathon purposes.
